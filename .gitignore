@@ -1,0 +1,16 @@
+# DB
+*.sqlite3*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Config
+config.toml
+
+# VSCode stuff
+.vscode/
+
+# Aerich Migrations
+migrations/
