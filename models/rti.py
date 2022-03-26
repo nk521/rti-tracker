@@ -6,6 +6,7 @@ from datetime import datetime
 from models.utils import extra_fields
 from models.user import User
 from models.response import Response
+from models.file_upload import FileUpload
 
 
 class Rti(models.Model):
@@ -22,10 +23,12 @@ class Rti(models.Model):
     ministry: int = fields.IntField()
     public_authority: int = fields.IntField()
     topic: fields.ManyToManyRelation[RtiTopic] = fields.ManyToManyField(
-        "models.RtiTopic", related_name="topic"
+        "models.RtiTopic", related_name="topic", null=True
     )
     query: str = fields.CharField(max_length=512)
-    filename: str = fields.CharField(max_length=253) #256-3
+    file: fields.ForeignKeyRelation[FileUpload] = fields.ForeignKeyField(
+        "models.FileUpload", related_name="file_rti", null=True
+    )
     response: fields.ForeignKeyRelation[Response] = fields.ForeignKeyField(
-        "models.Response", related_name="response", null = True
+        "models.Response", related_name="response", null=True
     )

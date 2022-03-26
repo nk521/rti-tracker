@@ -1,4 +1,5 @@
 from typing import List
+from fastapi import UploadFile
 from pydantic import BaseModel, EmailStr
 
 
@@ -11,6 +12,7 @@ class RtiIn(BaseModel):
     public_authority: int
     topic: List[str]
     query: str
+    file: str
 
 class RtiDeleteIn(BaseModel):
     id: str

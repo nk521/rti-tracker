@@ -5,6 +5,7 @@ from tortoise import fields, models
 
 from models.topic import RtiTopic
 from models.user import User
+from models.file_upload import FileUpload
 
 
 class Response(models.Model):
@@ -15,4 +16,6 @@ class Response(models.Model):
         "models.User", related_name="creator_response"
     )
     response_recv_date: datetime = fields.DatetimeField()
-    filename: str = fields.CharField(max_length=253)  # 256-3
+    file: fields.ForeignKeyRelation[FileUpload] = fields.ForeignKeyField(
+        "models.FileUpload", related_name="file_response", null=True
+    )

@@ -18,6 +18,14 @@ asyncmy = ["asyncmy"]
 asyncpg = ["asyncpg"]
 
 [[package]]
+name = "aiofiles"
+version = "0.8.0"
+description = "File support for asyncio."
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "aiosqlite"
 version = "0.17.0"
 description = "asyncio bridge to the standard sqlite3 module"
@@ -687,12 +695,16 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "0c6b692c6ba0d89b79f23fa00e1f3f2e2b3c80e81ec18ed61534c99ffe9e7cba"
+content-hash = "afb8bddeac4c8bde05bb1879ec71be1c4829cecbf8e4765f3ed284c392db9d0d"
 
 [metadata.files]
 aerich = [
     {file = "aerich-0.6.2-py3-none-any.whl", hash = "sha256:4e150c5549e75e0df1ba38b7e7bff0f92e2ef2b2937782ccc7dc90ea4c3f1f0f"},
     {file = "aerich-0.6.2.tar.gz", hash = "sha256:784b91f977925b0303a6225db1af3a37c038ac383f6633da926d3bd013c79de4"},
+]
+aiofiles = [
+    {file = "aiofiles-0.8.0-py3-none-any.whl", hash = "sha256:7a973fc22b29e9962d0897805ace5856e6a566ab1f0c8e5c91ff6c866519c937"},
+    {file = "aiofiles-0.8.0.tar.gz", hash = "sha256:8334f23235248a3b2e83b2c3a78a22674f39969b96397126cc93664d9a901e59"},
 ]
 aiosqlite = [
     {file = "aiosqlite-0.17.0-py3-none-any.whl", hash = "sha256:6c49dc6d3405929b1d08eeccc72306d3677503cc5e5e43771efc1e00232e8231"},
