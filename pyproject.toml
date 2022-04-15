@@ -25,6 +25,7 @@ Pillow = "^9.0.1"
 pytesseract = "^0.3.9"
 watchgod = "^0.8.1"
 aiofiles = "^0.8.0"
+typer = {extras = ["all"], version = "^0.4.1"}
 
 [tool.poetry.dev-dependencies]
 black = {version = "^22.1.0", allow-prereleases = true}
