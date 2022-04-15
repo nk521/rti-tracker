@@ -3,9 +3,9 @@ from datetime import datetime
 from pydantic import UUID4, EmailStr
 from tortoise import fields, models
 
+from models.file_upload import FileUpload
 from models.topic import RtiTopic
 from models.user import User
-from models.file_upload import FileUpload
 
 
 class Response(models.Model):

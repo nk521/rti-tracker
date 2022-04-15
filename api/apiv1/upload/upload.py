@@ -1,13 +1,13 @@
-from distutils.command.upload import upload
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
-from typing import Any, MutableMapping
-from uuid import uuid4
-import toml
 import os
 import shutil
+from distutils.command.upload import upload
+from typing import Any, MutableMapping
+from uuid import uuid4
 
-from models.file_upload import FileUpload
+import toml
 from api import deps
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
+from models.file_upload import FileUpload
 
 router = APIRouter()
 config: MutableMapping[str, Any] = toml.load("config.toml")
@@ -32,23 +32,17 @@ async def upload_file(
         FileUploadObj = await FileUpload.create(
             path=path, filename=filename, created_by=current_user
         )
-        
+
         await FileUploadObj.save()
-        
-        return {
-            "upload_time" : FileUploadObj.created_on,
-            "upload_id" : FileUploadObj.id
-        }
+
+        return {"upload_time": FileUploadObj.created_on, "upload_id": FileUploadObj.id}
+
 
 @router.get("/upload/{id}")
-async def upload_file(
-    id: str
-):
+async def upload_file(id: str):
     FileUploadObjExists = await FileUpload.exists(id=id)
     if not FileUploadObjExists:
         return HTTPException(404, detail="Uploaded file not found!")
-    
+
     FileUploadObj = await FileUpload.get(id=id)
-    return {
-        "url": FileUploadObj.path
-    }
+    return {"url": FileUploadObj.path}

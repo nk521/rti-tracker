@@ -1,12 +1,13 @@
-from pydantic import EmailStr, UUID4
-from models.topic import RtiTopic
-from tortoise import fields, models
 from datetime import datetime
 
-from models.utils import extra_fields
-from models.user import User
-from models.response import Response
+from pydantic import UUID4, EmailStr
+from tortoise import fields, models
+
 from models.file_upload import FileUpload
+from models.response import Response
+from models.topic import RtiTopic
+from models.user import User
+from models.utils import extra_fields
 
 
 class Rti(models.Model):

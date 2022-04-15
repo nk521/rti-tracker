@@ -1,5 +1,4 @@
-from pydantic import BaseModel, validator
-from pydantic import EmailStr
+from pydantic import BaseModel, EmailStr, validator
 
 
 class UserIn(BaseModel):

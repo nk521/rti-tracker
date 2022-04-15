@@ -7,13 +7,13 @@ import typer
 import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
-from tortoise.contrib.starlette import register_tortoise
 from tortoise import Tortoise, run_async
+from tortoise.contrib.starlette import register_tortoise
 
 from aerich_config import DATABASE_URL
 from api.apiv1.all_routers import api_router
-from models.user import User
 from models.rti import Rti
+from models.user import User
 from utils import utils
 
 path_root = Path(__file__).parents[0]

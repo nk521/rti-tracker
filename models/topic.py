@@ -1,5 +1,6 @@
-from tortoise import fields, models
 from slugify import slugify
+from tortoise import fields, models
+
 
 class RtiTopic(models.Model):
     id = fields.UUIDField(pk=True)
@@ -11,4 +12,3 @@ class RtiTopic(models.Model):
     async def save(self, *args, **kwargs) -> None:
         self.topic_slug = slugify(self.topic_word)
         await super().save(*args, **kwargs)
-
