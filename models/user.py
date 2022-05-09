@@ -14,6 +14,7 @@ class User(models.Model):
 
     id = fields.UUIDField(pk=True)
     username = fields.CharField(max_length=15, unique=True, null=False)
+    full_name = fields.CharField(max_length=64, null=False)
     email: EmailStr = extra_fields.EmailField(index=True, unique=True, null=False)
     hashed_password = fields.CharField(default="", max_length=500, null=False)
     is_active = fields.BooleanField(default=False)

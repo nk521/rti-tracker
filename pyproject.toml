@@ -26,9 +26,13 @@ pytesseract = "^0.3.9"
 watchgod = "^0.8.1"
 aiofiles = "^0.8.0"
 typer = {extras = ["all"], version = "^0.4.1"}
+fastapi-pagination = {extras = ["tortoise-orm"], version = "^0.9.3"}
 
 [tool.poetry.dev-dependencies]
 black = {version = "^22.1.0", allow-prereleases = true}
+Faker = "^13.3.5"
+tqdm = "^4.64.0"
+fastapi-profiler = "^1.0.0"
 
 
 [tool.aerich]

@@ -3,10 +3,12 @@ from typing import Optional
 
 import email_validator
 import toml
+from aerich_config import DATABASE_URL
 from jose import jwt
 from models.user import User
 from passlib.context import CryptContext
 from pydantic import EmailStr
+from tortoise import Tortoise
 
 config = toml.load("config.toml")
 
@@ -63,3 +65,13 @@ async def username_exists(username: str) -> bool:
 
 async def email_exists(email: EmailStr) -> bool:
     return await User.exists(email=email)
+
+
+async def init_tortoise() -> None:
+    await Tortoise.init(
+        db_url=DATABASE_URL,
+        modules={"models": ["models"]},
+    )
+
+async def destroy_tortoise() -> None:
+    await Tortoise.close_connections()
